@@ -81,8 +81,8 @@ In addition to analysis scripts, this repository contains a **`reference_data`**
 📅 **即将更新内容 / Upcoming Updates**
 
 - **GEO 数据处理与分析流程 / GEO Data Processing & Analysis Pipeline**  
-  将在后续版本中加入基于 GEO 公共数据集的下载、预处理与差异分析模块。  
-  Future updates will include scripts for processing GEO datasets, including data download, normalization, and DEG analysis.
+  将在后续版本中加入基于 GEO 公共数据集的预处理与分析部分。  
+  Future updates will include scripts for processing GEO datasets, including normalization, and analysis.
 
 ---
 
