@@ -5,8 +5,8 @@
 
 ## 📖 项目简介 | Project Overview
 
-本项目整理了一个常规的较为基础且完整的 **医学生信分析文章的流程**，涵盖从测序数据格式化，到差异表达分析、功能富集分析、生存分析及免疫浸润分析的常见步骤。  
-The repository provides a **complete Bioinformatics analysis pipeline**, including data preprocessing, differential expression, enrichment analysis, survival modeling, and immune infiltration estimation.
+本项目整理了一个常规的较为基础的 **医学生信分析文章的流程**，涵盖从测序数据格式化，到差异表达分析、功能富集分析、生存分析及免疫浸润分析的常见步骤。  
+The repository provides a basic ** Bioinformatics analysis pipeline**, including data preprocessing, differential expression, enrichment analysis, survival modeling, and immune infiltration estimation.
 
 本项目的脚本大部分来源于：
 - 开源生信教程与公共代码；
