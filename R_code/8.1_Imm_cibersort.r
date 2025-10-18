@@ -1,5 +1,5 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 创建并切换到新工作目录
@@ -20,8 +20,8 @@ library(preprocessCore)
 library(CIBERSORT)
 
 # 读取相关数据
-sig_matrix <- "/Users/paperz/Desktop/ABenMao生信分析/reference_data/LM22.txt" # 22种免疫细胞的特征基因矩阵
-mixture_file = '/Users/paperz/Desktop/ABenMao生信分析/analysis/formatted_data/TCGA_fpkm_mRNA_01A.txt'   # 肿瘤患者表达谱
+sig_matrix <- "reference_data/LM22.txt文件目录" # 22种免疫细胞的特征基因矩阵
+mixture_file = 'TCGA_fpkm_mRNA_01A.txt文件目录'   # 肿瘤患者表达谱
 
 # 运行CIBERSORT
 res_cibersort <- cibersort(sig_matrix, mixture_file, perm=100, QN=TRUE)
@@ -97,7 +97,7 @@ a <- res_cibersort[,1:22]
 a <- as.data.frame(a)
 
 # 添加分组信息（需要已经进行分组）
-load("/Users/paperz/Desktop/ABenMao生信分析/analysis/group_data.RData")
+load("group_data.RData文件目录")
 identical(rownames(a),rownames(group_df))
 b <- group_df
 class(b$group)
