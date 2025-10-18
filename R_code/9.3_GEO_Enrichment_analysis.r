@@ -1,5 +1,5 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)  # 切换工作目录到目标文件夹
 
 # 创建并切换到新工作目录
@@ -67,4 +67,3 @@ set.seed(1)
 KEGG<-GSEA(geneList,TERM2GENE = kegmt) #GSEA分析
 
 # 等等，与TCGA的分析大致相同
-# 可参考：https://mp.weixin.qq.com/s/_a48aujRyhb0GYiq9WThtA
