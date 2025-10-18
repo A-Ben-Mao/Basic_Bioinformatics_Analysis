@@ -2,7 +2,7 @@
 # 只有 FPKM/TPM 数据 -> 使用limma包（需要先进行 log2 转换）。
 
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 差异表达分析（DESeq2）
@@ -10,7 +10,7 @@ library(tidyverse)
 library(DESeq2)
 
 # 读取处理好的counts数据
-counts <- read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/formatted_data/TCGA_counts_mRNA_all.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+counts <- read.table("处理好的couts文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 
 # 差异基因分析（对处理后的counts文件进行分析）
 # 过滤低表达基因
