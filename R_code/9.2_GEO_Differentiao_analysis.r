@@ -1,5 +1,5 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)  # 切换工作目录到目标文件夹
 
 # 创建并切换到新工作目录
@@ -29,7 +29,7 @@ group_list = factor(group_list,
                     levels = c("normal","tumor"))
 
 # 读取经过格式化的表达数据
-exp <- read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/GEO_data/GEO_GSE85841.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+exp <- read.table("GEO_data/GEO_GSE85841.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 
 # 差异分析
 design=model.matrix(~group_list)
