@@ -1,5 +1,5 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 加载R包
@@ -10,7 +10,7 @@ library("survival")
 library("tidyverse")
 
 # 读取带有生存时间的DEG数据
-expr_for_cox=read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/single_gene_cox/surv.expr.txt",header=T,sep="\t",row.names=1)           
+expr_for_cox=read.table("urv.expr.txt文件目录",header=T,sep="\t",row.names=1)           
 colnames(expr_for_cox)[2] <- 'fustat'
 colnames(expr_for_cox)[1] <- 'futime'
 rt <- expr_for_cox         
@@ -19,7 +19,7 @@ rt$futime=rt$futime/365
 # 读取单因素cox选出的基因
 # 这里直接选用单因素cox显著的基因进行演示
 # 根据实际情况选择基因
-Coxoutput=read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/single_gene_cox/single_cox_results.txt",header=T,sep="\t",row.names=1)           
+Coxoutput=read.table("single_cox_results.txt文件目录",header=T,sep="\t",row.names=1)           
 
 # 提取所有P值小于cutoff的基因
 pcutoff <- 0.05
