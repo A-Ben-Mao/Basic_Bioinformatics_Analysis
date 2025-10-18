@@ -2,7 +2,7 @@
 # xena官网：https://xenabrowser.net/datapages/
 
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)  # 切换工作目录到目标文件夹
 
 #install.packages("tidyverse")
@@ -11,7 +11,7 @@ library(tidyverse)
 #### fpkm数据的格式化 ####
 # 与counts几乎相同，fpkm不需进行log转换
 # 读取tsv文件
-fpkm_data = read.table(file = '/Users/paperz/Desktop/ABenMao生信分析/data/TCGA-LUAD.star_fpkm.tsv.gz', sep = '\t', header = TRUE) 
+fpkm_data = read.table(file = 'fpkm文件目录', sep = '\t', header = TRUE) 
 
 # 提取所有以"_PAR_Y"结尾的行，这里代表的是Y染色体的伪染色体区，其数值一般为0
 par_y_rows <- fpkm_data[grepl("_PAR_Y$", fpkm_data$Ensembl_ID), ]
@@ -43,7 +43,7 @@ fpkm <- fpkm_clean
 
 # 加载基因注释参考文件,根据研究目的筛选
 Ginfo_0 <- read.table(
-  "/Users/paperz/Desktop/ABenMao生信分析/reference_data/gene_length_Table.txt",
+  "gene_length_Table.txt文件目录",
   sep = "\t",check.names = F,stringsAsFactors = F,header = T,row.names = 1)
 Ginfo <- Ginfo_0[which(Ginfo_0$genetype == "protein_coding"),] # 只要编码RNA
 
