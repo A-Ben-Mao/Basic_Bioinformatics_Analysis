@@ -2,7 +2,7 @@
 # xena官网：https://xenabrowser.net/datapages/
 
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 安装加载R包
@@ -13,7 +13,7 @@ library(forestplot)
 library(tidyverse)
 
 # 读取生存信息tsv文件
-surv = read.table(file = '/Users/paperz/Desktop/ABenMao生信分析/data/TCGA-LUAD.survival.tsv.gz', sep = '\t', header = TRUE) 
+surv = read.table(file = 'TCGA-LUAD.survival.tsv.gz文件目录', sep = '\t', header = TRUE) 
 
 # 整理生存信息数据
 surv$sample <- gsub("-",".",surv$sample)
@@ -22,7 +22,7 @@ surv <- surv[,-1]
 surv <- surv[,-3]
 
 # 读取表达数据
-expr <- read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/formatted_data/TCGA_fpkm_mRNA_all.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+expr <- read.table("TCGA_fpkm_mRNA_all.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 
 # 匹配样本数据及格式
 comgene <- intersect(colnames(expr),rownames(surv))
@@ -31,7 +31,7 @@ expr <- expr[,comgene]
 surv <- surv[comgene,]
 
 # 读取差异基因结果文件
-load("/Users/paperz/Desktop/ABenMao生信分析/analysis/differential_gene_analysis/TCGA_DEG.rda")
+load("TCGA_DEG.rda文件目录")
 
 # 目的是挑选要进行单因素cox的基因，可根据目的修改
 res_deseq2 <- as.data.frame(res)%>%
