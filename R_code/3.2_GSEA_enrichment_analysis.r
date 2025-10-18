@@ -1,5 +1,5 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 加载R包
@@ -13,13 +13,13 @@ library(org.Hs.eg.db)
 library(clusterProfiler)
 
 # 读取差异基因结果文件，这里不需要筛选差异基因
-load("/Users/paperz/Desktop/ABenMao生信分析/analysis/differential_gene_analysis/TCGA_DEG.rda")
+load("TCGA_DEG.rda文件目录")
 DEG <- as.data.frame(res)
 
 # 读取参考基因集，根据研究目的确定
 # 一般选择c2.all.v7.0.entrez.gmt (gsea)
 # 或 c5.all.v7.0.entrez.gmt (GO)
-reference_gmt <- read.gmt("/Users/paperz/Desktop/ABenMao生信分析/reference_data/msigdb_v7.0_GMTs/c5.all.v7.0.entrez.gmt")
+reference_gmt <- read.gmt("reference_data/msigdb_v7.0_GMTs/c5.all.v7.0.entrez.gmt文件目录")
 
 # 基因ID转换
 DEG <- DEG %>% rownames_to_column("Gene")
