@@ -45,6 +45,9 @@ This project aims to help bioinformatics beginners learn the standard workflow a
 | **8.1_imm_cibersort.r** | 免疫浸润分析：CIBERSORT | Immune infiltration via CIBERSORT |
 | **8.2_imm_estimate.r** | 免疫浸润分析：ESTIMATE | Immune scoring via ESTIMATE |
 | **8.3_imm_ssGSEA.r** | 免疫浸润分析：ssGSEA | Immune infiltration via ssGSEA |
+| **9.1_GEO_data_Formatting.r** | GEO 数据格式化 | Formatting GEO data |
+| **9.2_GEO_Differentiao_analysis.r** | GEO 差异基因分析 | Differential gene expression (DEG) using GEO data |
+| **9.3_GEO_Enrichment_analysis.r** | GEO 富集分析 | Functional enrichment of GEO |
 
 ---
 
@@ -73,23 +76,6 @@ In addition to analysis scripts, this repository contains a **`reference_data`**
 4. **生存与预后分析 / Survival & Prognostic Analysis**
 
 5. **免疫浸润分析 / Immune Infiltration**
-
----
-
-## 🧩 未来计划 | Future Updates
-
-📅 **即将更新内容 / Upcoming Updates**
-
-- **GEO 数据处理与分析流程 / GEO Data Processing & Analysis Pipeline**  
-  将在后续版本中加入基于 GEO 公共数据集的预处理与分析部分。  
-  Future updates will include scripts for processing GEO datasets, including normalization, and analysis.
-
----
-
-## 💻 环境依赖 | Environment Requirements
-
-建议使用 R 4.2 或更高版本。  
-Recommended: R ≥ 4.2.  
 
 ---
 
