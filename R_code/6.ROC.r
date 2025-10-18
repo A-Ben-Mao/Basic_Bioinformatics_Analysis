@@ -1,12 +1,12 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 加载R包
 library(tidyverse)
 
 # 读取生存信息
-surv = read.table(file = '/Users/paperz/Desktop/ABenMao生信分析/data/TCGA-LUAD.survival.tsv.gz', sep = '\t', header = TRUE) 
+surv = read.table(file = 'TCGA-LUAD.survival.tsv.gz文件目录', sep = '\t', header = TRUE) 
 
 # 生存信息数据格式调整
 surv$sample <- gsub("-",".",surv$sample)
@@ -25,7 +25,7 @@ setwd(output_dir)  # 切换工作目录到目标文件夹
 write.table(surv, file = "survival.txt",sep = "\t",row.names = T,col.names = NA,quote = F)
 
 # 读取表达数据
-expr <- read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/formatted_data/TCGA_fpkm_mRNA_01A.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+expr <- read.table("TCGA_fpkm_mRNA_01A.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 
 # 取生存数据和表达数据的交集样本
 comgene <- intersect(colnames(expr),rownames(surv))
