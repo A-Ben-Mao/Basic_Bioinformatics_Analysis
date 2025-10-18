@@ -5,7 +5,7 @@
 # 此分析方法可用于非肿瘤分析
 
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 加载R包
@@ -21,7 +21,7 @@ if (!dir.exists(output_dir)) {
 setwd(output_dir)  # 切换工作目录到目标文件夹
 
 # 读取细胞标记基因文件
-cellMarker <- data.table::fread("/Users/paperz/Desktop/ABenMao生信分析/reference_data/cellMarker.csv",data.table = F)
+cellMarker <- data.table::fread("reference_data/cellMarker.csv文件目录",data.table = F)
 colnames(cellMarker)[2] <- "celltype"
 
 # 预处理细胞标记基因
@@ -33,7 +33,7 @@ cellMarker <- lapply(type, function(x){
 save(cellMarker, file = "cellMarker_ssGSEA.Rdata") # 保存处理好的文件
 
 # 处理基因表达矩阵
-expr <- data.table::fread("/Users/paperz/Desktop/ABenMao生信分析/analysis/formatted_data/TCGA_fpkm_mRNA_01A.txt",data.table = F)   #读取表达文件
+expr <- data.table::fread("TCGA_fpkm_mRNA_01A.txt文件目录",data.table = F)   #读取表达文件
 rownames(expr) <- expr[,1]   #将第一列作为行名
 expr <- expr[,-1]            #去除第一列
 expr <- as.matrix(expr)      #将expr转换为矩阵格式
@@ -49,7 +49,7 @@ gsva_data <- gsva(gsvaPar, verbose = FALSE)
 a <- gsva_data %>% t() %>% as.data.frame()
 
 # 添加分组信息（需要已经进行分组）
-load("/Users/paperz/Desktop/ABenMao生信分析/analysis/group_data.RData")
+load("group_data.RData文件目录")
 identical(rownames(a),rownames(group_df))
 a$group <- group_df$group
 a <- a %>% rownames_to_column("sample")
