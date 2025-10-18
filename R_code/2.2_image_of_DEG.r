@@ -1,5 +1,5 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 加载R包
@@ -9,10 +9,10 @@ library(ggpubr)
 library(ggthemes)
 
 # 读取fpkm文件
-exp <- read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/formatted_data/TCGA_fpkm_mRNA_all.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+exp <- read.table("TCGA_fpkm_mRNA_all.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 
 # 读取差异基因结果文件
-load("/Users/paperz/Desktop/ABenMao生信分析/analysis/differential_gene_analysis/TCGA_DEG.rda")
+load("TCGA_DEG.rda文件目录")
 
 # 差异基因筛选
 DEG <- as.data.frame(res)%>% 
