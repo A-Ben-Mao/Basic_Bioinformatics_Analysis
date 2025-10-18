@@ -1,12 +1,12 @@
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 加载R包
 library(survival)
 
 #使用时间依赖ROC同款整理文件
-surv <- read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/ROC/exp_sur_ROC_01A.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+surv <- read.table("exp_sur_ROC_01A.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 surv$OS.time <- surv$OS.time*12 # 将生存时间转换为月份
 
 # 计算中位数并分组
