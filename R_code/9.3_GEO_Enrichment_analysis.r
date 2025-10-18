@@ -67,3 +67,4 @@ set.seed(1)
 KEGG<-GSEA(geneList,TERM2GENE = kegmt) #GSEA分析
 
 # 等等，与TCGA的分析大致相同
+# 可参考：https://mp.weixin.qq.com/s/_a48aujRyhb0GYiq9WThtA
