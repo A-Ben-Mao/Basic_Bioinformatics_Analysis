@@ -5,7 +5,7 @@
 # 多阅读文献，参考科研人员使用过的GEO数据集
 
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)  # 切换工作目录到目标文件夹
 
 # 加载R包
@@ -38,7 +38,7 @@ exp <- as.data.frame(exp)
 #### 基因ID手动注释 ####
 index = gset[[1]]@annotation #检查测序平台
 # 读取GPL注释文件
-GPL <- read.delim("/Users/paperz/Desktop/ABenMao生信分析/analysis/GEO_data/GPL570-55999的副本.txt", row.names=1)
+GPL <- read.delim("注释文件目录", row.names=1)
 
 # 一些特殊情况
 GPL$Gene.Symbol <- sub(" ///.*", "", GPL$Gene.Symbol)  # 删除"///"后的别名
