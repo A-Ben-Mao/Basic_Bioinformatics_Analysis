@@ -1,7 +1,7 @@
 # 一般使用fpkm或者tpm值，此二者可以互相缓缓
 
 # 设置工作目录
-original_dir <- "/Users/paperz/Desktop/ABenMao生信分析/analysis"
+original_dir <- "文件目录"
 setwd(original_dir)
 
 # 加载R包
@@ -17,7 +17,7 @@ if (!dir.exists(output_dir)) {
 setwd(output_dir)  # 切换工作目录到目标文件夹
 
 # 读取肿瘤患者01A表达谱
-expr <- read.table("/Users/paperz/Desktop/ABenMao生信分析/analysis/formatted_data/TCGA_fpkm_mRNA_01A.txt",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+expr <- read.table("TCGA_fpkm_mRNA_01A.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 input_file <- "TCGA_fpkm_mRNA_01A.txt"
 write.table(expr, file = input_file, sep = "\t", quote = F, col.names = NA)
 
