@@ -74,13 +74,6 @@ kegg <- enrichKEGG(gene         = DEG$ENTREZID,
 # 提取结果
 kegg_res <- kegg@result
 
-# 创建并切换到新工作目录
-output_dir <- "enrichment_analysis"
-if (!dir.exists(output_dir)) {
-  dir.create(output_dir)
-}
-setwd(output_dir)  # 切换工作目录到目标文件夹
-
 # 保存KEGG分析结果
 save(kegg,kegg_res,file = "KEGG_analysis.Rdata")
 
