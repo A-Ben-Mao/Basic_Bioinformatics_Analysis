@@ -17,7 +17,7 @@ load("TCGA_DEG.rda文件目录")
 DEG <- as.data.frame(res)
 
 # 读取参考基因集，根据研究目的确定
-# 一般选择c2.all.v7.0.entrez.gmt (gsea)
+# 一般选择c2.all.v7.0.entrez.gmt (kegg)
 # 或 c5.all.v7.0.entrez.gmt (GO)
 reference_gmt <- read.gmt("reference_data/msigdb_v7.0_GMTs/c5.all.v7.0.entrez.gmt文件目录")
 
