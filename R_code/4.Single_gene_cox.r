@@ -22,7 +22,7 @@ surv <- surv[,-1]
 surv <- surv[,-3]
 
 # 读取表达数据
-expr <- read.table("TCGA_fpkm_mRNA_all.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
+expr <- read.table("TCGA_fpkm_mRNA_01A.txt文件目录",sep = "\t",row.names = 1,check.names = F,stringsAsFactors = F,header = T)
 
 # 匹配样本数据及格式
 comgene <- intersect(colnames(expr),rownames(surv))
