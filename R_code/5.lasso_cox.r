@@ -10,7 +10,7 @@ library("survival")
 library("tidyverse")
 
 # 读取带有生存时间的DEG数据
-expr_for_cox=read.table("urv.expr.txt文件目录",header=T,sep="\t",row.names=1)           
+expr_for_cox=read.table("surv.expr.txt文件目录",header=T,sep="\t",row.names=1)           
 colnames(expr_for_cox)[2] <- 'fustat'
 colnames(expr_for_cox)[1] <- 'futime'
 rt <- expr_for_cox         
