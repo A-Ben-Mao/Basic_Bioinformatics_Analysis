@@ -12,8 +12,10 @@ setwd(output_dir)  # 切换工作目录到目标文件夹
 # 加载R包
 # install.packages('e1071')
 # install.packages('parallel')
-# #install.packages("BiocManager")
+# install.packages("BiocManager")
 # BiocManager::install("preprocessCore")
+# install.packages("devtools")
+# devtools::install_github("Moonerss/CIBERSORT")
 library(e1071)
 library(parallel)
 library(preprocessCore)
@@ -97,7 +99,7 @@ a <- res_cibersort[,1:22]
 a <- as.data.frame(a)
 
 # 添加分组信息（需要已经进行分组）
-load("group_data.RData文件目录")
+load("surv.expr.group.RData文件目录")
 identical(rownames(a),rownames(group_df))
 b <- group_df
 class(b$group)
