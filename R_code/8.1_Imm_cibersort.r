@@ -26,6 +26,7 @@ sig_matrix <- "reference_data/LM22.txt文件目录" # 22种免疫细胞的特征
 mixture_file = 'TCGA_fpkm_mRNA_01A.txt文件目录'   # 肿瘤患者表达谱
 
 # 运行CIBERSORT
+set.seed(123)
 res_cibersort <- cibersort(sig_matrix, mixture_file, perm=100, QN=TRUE)
 save(res_cibersort,file = "res_cibersort.Rdata")   #保存中间文件
 # 可以用来做很多图片，比如：https://mp.weixin.qq.com/s/vxar-e-JXpFQwutyj-jbyg
@@ -100,9 +101,14 @@ a <- as.data.frame(a)
 
 # 添加分组信息（需要已经进行分组）
 load("surv.expr.group.RData文件目录")
-identical(rownames(a),rownames(group_df))
-b <- group_df
-class(b$group)
+
+# 取两个数据框的行名交集
+common_samples <- intersect(rownames(a), rownames(group_df))
+a <- a[common_samples, ]
+b <- group_df[common_samples, ]
+identical(rownames(a), rownames(b))
+
+# 给cibersort数据添加分组信息
 a$group <- b$group
 a <- a %>% rownames_to_column("sample")
 
