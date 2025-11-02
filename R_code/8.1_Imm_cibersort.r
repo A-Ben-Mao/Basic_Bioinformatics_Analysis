@@ -27,7 +27,7 @@ mixture_file = 'TCGA_fpkm_mRNA_01A.txt文件目录'   # 肿瘤患者表达谱
 
 # 运行CIBERSORT
 set.seed(123)
-res_cibersort <- cibersort(sig_matrix, mixture_file, perm=100, QN=TRUE)
+res_cibersort <- cibersort(sig_matrix, mixture_file, perm=100, QN=False)
 save(res_cibersort,file = "res_cibersort.Rdata")   #保存中间文件
 # 可以用来做很多图片，比如：https://mp.weixin.qq.com/s/vxar-e-JXpFQwutyj-jbyg
 
