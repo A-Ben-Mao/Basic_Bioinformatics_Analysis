@@ -35,6 +35,10 @@ surv$group <- factor(surv$group, levels = c("Low", "High"))
 print(cut_points)
 table(surv$group)
 
+# 保存分组（如果需要），一般用于后续分析
+group_df <- surv
+save(group_df, file = "surv.expr.group.RData")
+
 # 生存差异检验（对数秩检验）
 fitd <- survdiff(Surv(OS.time, OS) ~ group,
                  data      = surv,
