@@ -48,6 +48,6 @@ result <- as.data.frame(t(result[-1,])) #转置
 # TumorPurity越高表示肿瘤细胞比例越高
 
 # 保存最终结果
-write.table(result, file = "LIHC_fpkm_mRNA_01A_estimate_score.txt",sep = "\t",row.names = T,col.names = NA,quote = F) # 保存并覆盖得分
+write.table(result, file = "TCGA_fpkm_mRNA_01A_estimate_score.txt",sep = "\t",row.names = T,col.names = NA,quote = F) # 保存并覆盖得分
 
 # 可以进行分组比较，可以评估单组肿瘤纯度 etc.
