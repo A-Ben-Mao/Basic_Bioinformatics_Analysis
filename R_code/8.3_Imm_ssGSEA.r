@@ -51,7 +51,15 @@ a <- gsva_data %>% t() %>% as.data.frame()
 # 添加分组信息（需要已经进行分组）
 load("group_data.RData文件目录")
 identical(rownames(a),rownames(group_df))
-a$group <- group_df$group
+
+# 取两个数据框的行名交集
+common_samples <- intersect(rownames(a), rownames(group_df))
+a <- a[common_samples, ]
+b <- group_df[common_samples, ]
+identical(rownames(a), rownames(b))
+
+# 给cibersort数据添加分组信息
+a$group <- b$group
 a <- a %>% rownames_to_column("sample")
 
 # 保存结果
