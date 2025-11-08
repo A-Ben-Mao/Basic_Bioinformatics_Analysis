@@ -27,7 +27,7 @@ DEG <- inner_join(DEG,genelist,by=c("Gene"="SYMBOL"))
 
 #### GSEA ####
 # 读取参考的gmt文件
-reference_gmt <- read.gmt("E:\\Basic_Bioinformatics_Analysis-main\\reference_data\\msigdb_v7.0_GMTs\\c5.all.v7.0.entrez.gmt")
+reference_gmt <- read.gmt("c5.all.v7.0.entrez.gmt")
 
 # 准备排序基因列表
 geneList = DEG[,2] # 注意一下，选择LogFC列
@@ -54,5 +54,6 @@ gseaplot2(gsea,3,color="red",pvalue_table = T)
 gseaplot2(gsea, geneSetID = c(1,3), subplots = 1:3)
 gseaplot2(gsea, geneSetID = 1:3, subplots = 1:2)
 gseaplot2(gsea, geneSetID = 1:10, subplots = 1:3)
+
 
 # 等等，与TCGA的分析大致相同
