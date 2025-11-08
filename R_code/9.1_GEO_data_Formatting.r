@@ -1,7 +1,7 @@
 # GEO数据下载
 # 官网：https://www.ncbi.nlm.nih.gov/geo/
 
-# 本示例使用GSE31210
+# 本示例使用GSE85841
 # 多阅读文献，参考科研人员使用过的GEO数据集
 
 # 设置工作目录
@@ -23,7 +23,7 @@ setwd(output_dir)  # 切换工作目录到目标文件夹
 #### 文件获取及格式化 ####
 # 下载数据，如果文件夹中有会直接读入
 # chooseBioCmirror()
-gset = getGEO('GSE31210', destdir=".", AnnotGPL = F, getGPL = F) # 建议直接官网下载
+gset = getGEO('GSE85841', destdir=".", AnnotGPL = F, getGPL = F) # 建议直接官网下载
 gset[[1]] # 基因集信息
 
 # 样本分组处理
