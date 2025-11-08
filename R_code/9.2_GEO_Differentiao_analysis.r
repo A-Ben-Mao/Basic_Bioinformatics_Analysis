@@ -40,9 +40,9 @@ deg$change = ifelse(k1,"down",ifelse(k2,"up","stable")) #增加新的列
 table(deg$change)
 
 # 差异基因热图
+library(pheatmap)
 cg = rownames(deg)[deg$change !="stable"]
 diff=exp[cg,]
-library(pheatmap)
 annotation_col=data.frame(group=group_list)
 rownames(annotation_col)=colnames(diff) 
 pheatmap(diff,
