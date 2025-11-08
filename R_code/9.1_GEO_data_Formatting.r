@@ -13,13 +13,6 @@ library(tidyverse)
 library(GEOquery)
 library(limma) 
 
-# 创建并切换到新工作目录
-output_dir <- "GEO_data"
-if (!dir.exists(output_dir)) {
-  dir.create(output_dir)
-}
-setwd(output_dir)  # 切换工作目录到目标文件夹
-
 #### 文件获取及格式化 ####
 # 下载数据，如果文件夹中有会直接读入
 # chooseBioCmirror()
@@ -48,6 +41,7 @@ dev.off()
 exp=normalizeBetweenArrays(exp)
 boxplot(exp,outline=FALSE, notch=T,col=group_list, las=2)
 range(exp)
+
 exp <- log2(exp+1) # 进行log转换，这一步根据原始数据来判断是否需要对数转换
 range(exp)
 dev.off()
