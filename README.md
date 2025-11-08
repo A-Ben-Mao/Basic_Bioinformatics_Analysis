@@ -47,7 +47,9 @@ This project aims to help bioinformatics beginners learn the standard workflow a
 | **8.3_imm_ssGSEA.r** | 免疫浸润分析：ssGSEA | Immune infiltration via ssGSEA |
 | **9.1_GEO_data_Formatting.r** | GEO 数据格式化 | Formatting GEO data |
 | **9.2_GEO_Differentiao_analysis.r** | GEO 差异基因分析 | Differential gene expression (DEG) using GEO data |
-| **9.3_GEO_Enrichment_analysis.r** | GEO 富集分析 | Functional enrichment of GEO |
+| **9.3_GEO_Enrichment_analysis.r** | GEO GO/KEGG 富集分析 | Functional enrichment of GEO (GO, KEGG) |
+| **9.4_GEO_Enrichment_analysis.r** | GEO GSEA 富集分析 | Functional enrichment of GEO (GSEA) |
+| **9.5_GEO_Survival_analysis.r** | GEO 生存曲线分析 | Kaplan-Meier survival analysis of GEO |
 
 ---
 
