@@ -56,3 +56,54 @@ pheatmap(diff,
          fontsize_col=3)
 dev.off()
 
+# 差异基因火山图
+library(ggplot2)
+library(ggrepel)
+
+# 构造用于绘图的数据框
+volcano_df <- deg
+volcano_df$gene <- rownames(volcano_df)
+volcano_df$negLog10P <- -log10(volcano_df$P.Value + 1e-300)  # 防止P.Value==0导致Inf
+
+# 分别挑选上调和下调基因
+top_n <- 10  # 上调和下调各取前10个
+label_up <- volcano_df %>%
+  filter(change == "up") %>%
+  arrange(P.Value) %>%
+  slice(1:top_n) %>%
+  pull(gene)
+
+label_down <- volcano_df %>%
+  filter(change == "down") %>%
+  arrange(P.Value) %>%
+  slice(1:top_n) %>%
+  pull(gene)
+
+label_genes <- c(label_up, label_down)
+
+# 绘图并保存
+outfile <- "GEO_volcano.png"
+png(filename = outfile, width = 2000, height = 1600, res = 300)
+p <- ggplot(volcano_df, aes(x = logFC, y = negLog10P)) +
+  geom_point(aes(color = change), alpha = 0.6, size = 1.8) +
+  scale_color_manual(values = c("up" = "red", "down" = "blue", "stable" = "grey70")) +
+  geom_vline(xintercept = c(-logFC, logFC), linetype = "dashed", color = "black") +
+  geom_hline(yintercept = -log10(P.Value), linetype = "dashed", color = "black") +
+  labs(title = "Volcano plot",
+       subtitle = paste0("Thresholds: |logFC| >", logFC, ", P.Value <", P.Value),
+       x = "log2 Fold Change",
+       y = "-log10(P.Value)",
+       color = "") +
+  theme_bw(base_size = 14) +
+  theme(legend.position = "right",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+
+p <- p + geom_text_repel(data = subset(volcano_df, gene %in% label_genes),
+                         aes(label = gene),
+                         size = 3,
+                         max.overlaps = 30)
+
+print(p)
+dev.off()
+cat("火山图已保存到：", outfile, "\n")
