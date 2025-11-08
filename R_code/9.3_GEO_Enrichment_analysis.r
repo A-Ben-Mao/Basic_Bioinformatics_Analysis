@@ -87,24 +87,4 @@ names(geneList) = as.character(DEG[,'ENTREZID'])
 head(geneList)
 geneList = sort(geneList, decreasing = TRUE)
 
-# GSEA分析
-set.seed(1)
-gsea<-GSEA(geneList,TERM2GENE = reference_gmt)
-
-# 结果保存
-gsea_result_df <- as.data.frame(gsea)
-write.table(gsea_result_df,file="GSEA_MSigDb_C5_result.txt",sep = "\t",row.names = T,col.names = NA,quote = F)
-save(gsea,gsea_result_df,file = "GSEA_deg_SPP1.rda")
-
-# 可视化
-# 单通路绘制
-library(enrichplot)
-gseaplot2(gsea,1,color="red")
-gseaplot2(gsea,3,color="red",pvalue_table = T)
-
-# 多通路绘制（第一个参数为通路序号，第二个参数为图像包含部分）
-gseaplot2(gsea, geneSetID = c(1,3), subplots = 1:3)
-gseaplot2(gsea, geneSetID = 1:3, subplots = 1:2)
-gseaplot2(gsea, geneSetID = 1:10, subplots = 1:3)
-
 # 等等，与TCGA的分析大致相同
