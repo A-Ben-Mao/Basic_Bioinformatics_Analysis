@@ -58,8 +58,24 @@ GPL <- GPL[comname,]
 # 合并表达数据与注释信息
 exp1 <- as.data.frame(exp)
 exp1 <- cbind(exp,GPL)
-exp1 <- exp1[!duplicated(exp1$GeneSymbol),] # 注意修改列名
-rownames(exp1) <- exp1$GeneSymbol
-exp1 <- exp1[,(1:16)] # 筛选患者列，注意修改数据
-write.table(exp1, file = "GEO_GSE85841.txt",sep = "\t",row.names = T,col.names = NA,quote = F)
+
+# 去除 NA 或空的基因名（注意修改列名）
+exp1 <- exp1[!is.na(exp1$GeneSymbol) & exp1$GeneSymbol != "", ]
+
+# 统计重复基因数量并打印
+dup_genes <- sum(duplicated(exp1$GeneSymbol))
+cat("共有", dup_genes, "个重复的基因名（probe->gene 多对一）。\n")
+
+# 明确样本列（即只选择数值列）
+sample_cols <- colnames(exp)# 原始 exp 的样本列名
+
+# 按 GeneSymbol 对样本列取均值
+agg_df <- aggregate(exp1[, sample_cols], 
+                    by = list(GeneSymbol = exp1$GeneSymbol), 
+                    FUN = mean, na.rm = TRUE)
+rownames(agg_df) <- agg_df$GeneSymbol
+agg_df$GeneSymbol <- NULL
+
+# 保存表达矩阵
+write.table(agg_df, file = "GEO_GSE85841.txt",sep = "\t",row.names = T,col.names = NA,quote = F)
 
