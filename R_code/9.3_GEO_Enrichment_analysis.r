@@ -2,13 +2,6 @@
 original_dir <- "文件目录"
 setwd(original_dir)  # 切换工作目录到目标文件夹
 
-# 创建并切换到新工作目录
-output_dir <- "GEO_data"
-if (!dir.exists(output_dir)) {
-  dir.create(output_dir)
-}
-setwd(output_dir)  # 切换工作目录到目标文件夹
-
 # 加载R包
 library(tidyverse)
 library(org.Hs.eg.db)
