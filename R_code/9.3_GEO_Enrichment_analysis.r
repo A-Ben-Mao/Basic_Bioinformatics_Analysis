@@ -70,14 +70,4 @@ barplot(kegg, showCategory = 20,color = "pvalue")
 # 气泡图
 dotplot(kegg, showCategory = 20)
 
-#### GSEA ####
-# 读取参考的gmt文件
-reference_gmt <- read.gmt("c5.all.v7.0.entrez.gmt")
-
-# 准备排序基因列表
-geneList = DEG[,2] # 注意一下，选择LogFC列
-names(geneList) = as.character(DEG[,'ENTREZID'])
-head(geneList)
-geneList = sort(geneList, decreasing = TRUE)
-
 # 等等，与TCGA的分析大致相同
