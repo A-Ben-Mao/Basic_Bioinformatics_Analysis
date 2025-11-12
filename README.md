@@ -28,7 +28,7 @@ This project aims to help bioinformatics beginners learn the standard workflow a
 ## 🎥 教学视频 & 支持作者 | Tutorial Videos & Support
 
 📺 **教学视频已同步上传至 Bilibili：**  
-UP 主：**[Broca区想发言](https://space.bilibili.com/)**  
+UP 主：**[Broca区想发言]([https://space.bilibili.com/](https://space.bilibili.com/3632308559022298))**  
 欢迎关注以获取详细讲解视频与更新通知！
 
 💖 **如果您觉得内容对您有帮助：**  
@@ -36,7 +36,7 @@ UP 主：**[Broca区想发言](https://space.bilibili.com/)**
 - 欢迎在 B 站 **充电** 支持我；  
 - 或通过 **微信赞赏** 支持持续更新；  
 
-您的鼓励将是我继续优化生信教学内容的最大动力！
+您的鼓励将是我持续高质量更新的动力！
 
 <div align="center">
 
@@ -104,7 +104,4 @@ In addition to analysis scripts, this repository contains a **`reference_data`**
 
 ---
 
-🌟 如果觉得有帮助 | If You Found This Useful
-
-欢迎点一个 ⭐️ 支持开源！
-Give this repo a ⭐️ if you find it helpful!
+🌟 感谢您看到这里。
