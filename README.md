@@ -28,7 +28,7 @@ This project aims to help bioinformatics beginners learn the standard workflow a
 ## 🎥 教学视频 & 支持作者 | Tutorial Videos & Support
 
 📺 **教学视频已同步上传至 Bilibili：**  
-UP 主：**[Broca区想发言]([https://space.bilibili.com/3632308559022298])**  
+UP 主：**[Broca区想发言](https://space.bilibili.com/3632308559022298)**  
 欢迎关注以获取详细讲解视频与更新通知！
 
 💖 **如果您觉得内容对您有帮助：**  
