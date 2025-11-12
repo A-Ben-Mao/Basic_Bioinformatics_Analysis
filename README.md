@@ -42,7 +42,7 @@ UP 主：**[Broca区想发言](https://space.bilibili.com/3632308559022298)**
 
 | B站充电 | 微信赞赏 |
 |:--:|:--:|
-| <img src="images/Bilibili_chongdian.png" width="180"/> | <img src="images/Wechat_zanshang.png" width="180"/> |
+| <img src="images/Bilibili_chongdian.png" width="300"/> | <img src="images/Wechat_zanshang.png" width="300"/> |
 
 </div>
 
