@@ -47,7 +47,7 @@ exp1 <- as.data.frame(exp)
 exp1 <- cbind(exp,GPL)
 
 # 去除 NA 或空的基因名（注意修改列名）
-exp1 <- exp1[!is.na(exp1$GeneSymbol) & exp1$GeneSymbol != "", ]
+exp1 <- exp1[!is.na(exp1$Gene.Symbol) & exp1$Gene.Symbol != "", ]
 
 # 统计重复基因数量并打印
 dup_genes <- sum(duplicated(exp1$GeneSymbol))
