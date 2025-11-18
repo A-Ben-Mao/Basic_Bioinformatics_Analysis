@@ -74,7 +74,7 @@ library(readr)
 # 提取临床信息，先前已经进行过
 # pdata <- pData(gset[[1]])
 
-# 保存临床信息后手动整理生存信息
+# 保存临床信息后手动整理生存信息（注意修改列名）
 write.table(pdata,"GSE31210_clinic.txt" ,quote=FALSE,col.name=NA,sep="\t")
 
 # 随后再读取已经筛选好的数据
@@ -92,6 +92,9 @@ surv <- surv[common_samples, , drop = FALSE]
 exp2 <- exp2[common_samples, , drop = FALSE]
 exp2 <- exp2[rownames(surv), , drop = FALSE]  # 确保行名顺序一致
 surv_exp <- cbind(surv, exp2) # 合并数据
+
+# 保存处理好的数据
+write.table(surv_exp,"GSE31210_surv_exp.txt" ,quote=FALSE,col.name=NA,sep="\t")
 
 #### 生存分析参数设置 ####
 aim_gene <- "DKK1"   # 想分析的基因名
@@ -124,16 +127,15 @@ group_df <- surv_exp
 save(group_df, file = "surv_exp.expr.group.RData")
 
 # 生存差异检验（对数秩检验）
-fitd <- surv_expdiff(surv_exp(OS.time, OS) ~ group,
+fitd <- survdiff(surv_exp(OS.time, OS) ~ group,
                      data      = surv_exp,
                      na.action = na.exclude)
 pValue <- 1 - pchisq(fitd$chisq, length(fitd$n) - 1)
 
 # 拟合生存曲线(Kaplan-Meier)
-fit <- surv_expfit(surv_exp(OS.time, OS)~ group, data = surv_exp)
+fit <- survfit(Surv(OS.time, OS)~ group, data = surv_exp)
 summary(fit)
 
-# 绘制生存曲线
 #### 绘制生存曲线 ####
 # 基础图像
 plot(fit, conf.int = T,
@@ -158,7 +160,7 @@ text(25, 0.2, p.lab)
 cols <- c("#1F77B4", "#D62728")  # 蓝/红
 
 # 计算最大随访时间和最小生存率，用于自动放置p值
-x_pos <- max(surv$OS.time, na.rm = TRUE) * 0.7
+x_pos <- max(surv_exp$OS.time, na.rm = TRUE) * 0.7
 y_pos <- min(fit$surv, na.rm = TRUE) + 0.05
 
 # 绘图
@@ -169,7 +171,7 @@ plot(fit,
      mark.time = TRUE,          # 显示删失点
      xlab = "Time (Months)",
      ylab = "Survival probability (%)",
-     xlim = c(0, max(surv$OS.time, na.rm = TRUE)),
+     xlim = c(0, max(surv_exp$OS.time, na.rm = TRUE)),
      ylim = c(0, 1),
      axes = FALSE,
      main = paste0("Kaplan-Meier survival: ", aim_gene)
@@ -182,7 +184,7 @@ box()
 
 # 添加图例
 legend("topright",
-       legend = levels(surv$group),
+       legend = levels(surv_exp$group),
        col = cols,
        lwd = 2,
        bty = "n",
@@ -191,7 +193,7 @@ legend("topright",
 
 # 添加P值
 y_pos <- max(0, min(fit$surv, na.rm = TRUE) - 0.05)
-x_pos <- max(surv$OS.time, na.rm = TRUE) * 0.75
+x_pos <- max(surv_exp$OS.time, na.rm = TRUE) * 0.75
 
 p.lab <- paste0("P", ifelse(pValue < 0.001, " < 0.001",
                             paste0(" = ", round(pValue, 3))))
@@ -200,7 +202,7 @@ text(x_pos, y_pos, p.lab, cex = 1.1, font = 2)
 # 图像3
 library(survminer)
 ggsurvplot(fit,
-           data = surv,
+           data = surv_exp,
            pval = p.lab,
            conf.int = TRUE, # 显示置信区间
            risk.table = TRUE, # 显示风险表
@@ -217,3 +219,4 @@ ggsurvplot(fit,
            ncensor.plot = TRUE, # 显示删失图块
            ncensor.plot.height = 0.25,
            risk.table.y.text = FALSE)
+
