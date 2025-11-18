@@ -50,18 +50,18 @@ exp1 <- cbind(exp,GPL)
 exp1 <- exp1[!is.na(exp1$Gene.Symbol) & exp1$Gene.Symbol != "", ]
 
 # 统计重复基因数量并打印
-dup_genes <- sum(duplicated(exp1$GeneSymbol))
+dup_genes <- sum(duplicated(exp1$Gene.Symbol))
 cat("共有", dup_genes, "个重复的基因名（probe->gene 多对一）。\n")
 
 # 明确样本列（即只选择数值列）
 sample_cols <- colnames(exp)# 原始 exp 的样本列名
 
-# 按 GeneSymbol 对样本列取均值
+# 按 Gene.Symbol 对样本列取均值
 agg_df <- aggregate(exp1[, sample_cols], 
-                    by = list(GeneSymbol = exp1$GeneSymbol), 
+                    by = list(Gene.Symbol = exp1$Gene.Symbol), 
                     FUN = mean, na.rm = TRUE)
-rownames(agg_df) <- agg_df$GeneSymbol
-agg_df$GeneSymbol <- NULL
+rownames(agg_df) <- agg_df$Gene.Symbol
+agg_df$Gene.Symbol <- NULL
 
 # 保存表达矩阵
 write.table(agg_df, file = "GEO_GSE31210.txt",sep = "\t",row.names = T,col.names = NA,quote = F)
