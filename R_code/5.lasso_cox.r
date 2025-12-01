@@ -1,3 +1,7 @@
+# 如果您觉得这个分享对您有所帮助，欢迎关注
+# Bilibili：Broca区想发言
+# GitHub：A-Ben-Mao
+
 # 设置工作目录
 original_dir <- "文件目录"
 setwd(original_dir)
