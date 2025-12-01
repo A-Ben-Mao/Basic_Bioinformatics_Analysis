@@ -1,3 +1,7 @@
+# 如果您觉得这个分享对您有所帮助，欢迎关注
+# Bilibili：Broca区想发言
+# GitHub：A-Ben-Mao
+
 # 设置工作目录
 original_dir <- "文件目录"
 setwd(original_dir)  # 切换工作目录到目标文件夹
@@ -57,3 +61,4 @@ gseaplot2(gsea, geneSetID = 1:10, subplots = 1:3)
 
 
 # 等等，与TCGA的分析大致相同
+
