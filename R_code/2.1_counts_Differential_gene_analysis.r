@@ -1,3 +1,7 @@
+# 如果您觉得这个分享对您有所帮助，欢迎关注
+# Bilibili：Broca区想发言
+# GitHub：A-Ben-Mao
+
 # 有原始 Counts 数据 -> 可选用DESeq2。
 # 只有 FPKM/TPM 数据 -> 使用limma包（需要先进行 log2 转换）。
 
