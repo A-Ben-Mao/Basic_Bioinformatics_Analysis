@@ -1,3 +1,7 @@
+# 如果您觉得这个分享对您有所帮助，欢迎关注
+# Bilibili：Broca区想发言
+# GitHub：A-Ben-Mao
+
 # TCGA数据的下载：
 # xena官网：https://xenabrowser.net/datapages/
 
