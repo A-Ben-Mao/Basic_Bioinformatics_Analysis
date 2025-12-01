@@ -1,3 +1,7 @@
+# 如果您觉得这个分享对您有所帮助，欢迎关注
+# Bilibili：Broca区想发言
+# GitHub：A-Ben-Mao
+
 # 一般使用fpkm或者tpm值，此二者可以互相缓缓
 
 # 设置工作目录
